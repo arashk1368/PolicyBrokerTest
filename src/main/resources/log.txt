@@ -1,0 +1,8 @@
+Apr 24, 2014 11:46:45 PM cloudservices.brokerage.policy.policybrokertest.App main
+SEVERE: hibernate.cfg.xml not found
+org.hibernate.HibernateException: hibernate.cfg.xml not found
+	at org.hibernate.internal.util.ConfigHelper.getResourceAsStream(ConfigHelper.java:173)
+	at org.hibernate.cfg.Configuration.getConfigurationInputStream(Configuration.java:2093)
+	at org.hibernate.cfg.Configuration.configure(Configuration.java:2074)
+	at cloudservices.brokerage.policy.policybrokertest.App.main(App.java:44)
+

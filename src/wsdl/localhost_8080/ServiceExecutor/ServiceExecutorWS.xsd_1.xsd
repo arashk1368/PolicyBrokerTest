@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://service.serviceexecutor.policy.brokerage.cloudservices/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://service.serviceexecutor.policy.brokerage.cloudservices/">
+
+<xs:element name="DAOException" type="tns:DAOException"/>
+
+<xs:element name="IOException" type="tns:IOException"/>
+
+<xs:element name="ServiceExecutionException" type="tns:ServiceExecutionException"/>
+
+<xs:element name="executeService" type="tns:executeService"/>
+
+<xs:element name="executeServiceResponse" type="tns:executeServiceResponse"/>
+
+<xs:complexType name="executeService">
+<xs:sequence>
+<xs:element name="service" type="tns:service" minOccurs="0"/>
+<xs:element name="initialState" type="tns:state" minOccurs="0"/>
+<xs:element name="goalState" type="tns:state" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="service">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="servicesStr" type="xs:string" minOccurs="0"/>
+<xs:element name="WSDLURL" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="state">
+<xs:sequence>
+<xs:element name="number" type="xs:int"/>
+<xs:element name="params">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="entry" minOccurs="0" maxOccurs="unbounded">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="key" minOccurs="0" type="xs:string"/>
+<xs:element name="value" minOccurs="0" type="xs:anyType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="propositions" type="tns:proposition" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="proposition">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="valid" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="executeServiceResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="IOException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DAOException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ServiceExecutionException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
